@@ -5,6 +5,12 @@ import HiddenPeers from '../contexts/HiddenPeers';
 import Placeholders from '../contexts/Placeholders';
 import PeerGridItem from './PeerGridItem';
 
+const style = {
+  width: '100%',
+  height: '11rem',
+  backgroundImage: `url("http://graphon.jp/img/photo/15106.JPG")`
+};
+
 const StyledGridLayout = styled(GridLayout)({
   flex: 1,
   backgroundColor: '#eaecec',
@@ -55,6 +61,11 @@ const PeerGrid: React.SFC<Props> = ({ roomAddress, activeSpeakerView, setPasswor
               <RemoteMediaList
                 peer={peer.address}
                 render={({ media }) => (
+                  <div>
+                        <div className="App">
+                          <img style={ style } />
+                        </div>
+                  </div>
                   <PeerGridItem
                     media={media}
                     peer={peer}
@@ -65,6 +76,11 @@ const PeerGrid: React.SFC<Props> = ({ roomAddress, activeSpeakerView, setPasswor
               />
             )}
           />
+          <div>
+                <div className="App">
+                  <img style={ style } />
+                </div>
+          </div>
         ) : (
           <Placeholders.Consumer>
             {({ gridPlaceholder }) => (

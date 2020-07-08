@@ -24,8 +24,16 @@ import { default as Meter } from './VolumeMeter';
 import getConfigFromMetaTag from '../utils/metaConfig';
 import { createSoundPlayer, initSounds } from '../utils/sounds';
 
+
+
 const hasTestOutput = getConfigFromMetaTag('sound-test-output');
 const throttledTestOutput = createSoundPlayer('sound-test-output');
+
+const style = {
+  width: '100%',
+  height: '11rem',
+  backgroundImage: `url("http://graphon.jp/img/photo/15106.JPG")`
+};
 
 const Container = styled.div({
   display: 'grid',
@@ -200,20 +208,31 @@ class Haircheck extends React.Component<HaircheckProps, HaircheckState> {
             <Container>
               <Placeholders.Consumer>
                 {({ haircheckHeaderPlaceholder }) => (
-                  <Header
-                    ref={node => {
-                      if (node && haircheckHeaderPlaceholder && node.childElementCount === 0) {
-                        const el = haircheckHeaderPlaceholder();
-                        if (el) {
-                          node.appendChild(el);
-                        }
-                      }
-                    }}
-                  />
+                  <Header>
+                  <div>
+                      <div className="App">
+                          <img style={ style } />
+                      </div>
+                  </div>
+                  </Header>
+                  //   ref={node => {
+                  //     if (node && haircheckHeaderPlaceholder && node.childElementCount === 0) {
+                  //       const el = haircheckHeaderPlaceholder();
+                  //       if (el) {
+                  //         node.appendChild(el);
+                  //       }
+                  //     }
+                  //   }}
+                  // />
                 )}
               </Placeholders.Consumer>
-              <Preview>
-                <MediaPreview video={previewVideo} />
+                <div>
+                      <div className="App">
+                        <img style={ style } />
+                      </div>
+                </div>
+                <Preview>
+                  <MediaPreview video={previewVideo} />
               </Preview>
               <Controls>
                 <DeviceList
@@ -247,6 +266,11 @@ class Haircheck extends React.Component<HaircheckProps, HaircheckState> {
                           cameraPermissionGranted,
                           requestingCapture
                         )}
+                        <div>
+                                  <div className="App">
+                                    <img style={ style } />
+                                  </div>
+                            </div>
                         <div>
                           <UserControls
                             render={({ user, setAudioOutputDevice }) => (
