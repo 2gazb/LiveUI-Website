@@ -33,6 +33,7 @@ const style = {
   width: '100%',
   height: '11rem',
   backgroundImage: `url("http://graphon.jp/img/photo/15106.JPG")`
+
 };
 
 const Container = styled.div({
@@ -208,28 +209,30 @@ class Haircheck extends React.Component<HaircheckProps, HaircheckState> {
             <Container>
               <Placeholders.Consumer>
                 {({ haircheckHeaderPlaceholder }) => (
-                  <Header>
+                  <Header
+                    // ref={node => {
+                    //   if (node && haircheckHeaderPlaceholder && node.childElementCount === 0) {
+                    //     const el = haircheckHeaderPlaceholder();
+                    //     if (el) {
+                    //       node.appendChild(el);
+                    //     }
+                    //   }
+                    // }}
+                  >
                   <div>
-                      <div className="App">
-                          <img style={ style } />
-                      </div>
+                  <div className="App">
+                    <img style={ style } />
+                  </div>
                   </div>
                   </Header>
-                  //   ref={node => {
-                  //     if (node && haircheckHeaderPlaceholder && node.childElementCount === 0) {
-                  //       const el = haircheckHeaderPlaceholder();
-                  //       if (el) {
-                  //         node.appendChild(el);
-                  //       }
-                  //     }
-                  //   }}
-                  // />
                 )}
               </Placeholders.Consumer>
                 <div>
+                return (
                       <div className="App">
                         <img style={ style } />
                       </div>
+                      );
                 </div>
                 <Preview>
                   <MediaPreview video={previewVideo} />
@@ -266,11 +269,6 @@ class Haircheck extends React.Component<HaircheckProps, HaircheckState> {
                           cameraPermissionGranted,
                           requestingCapture
                         )}
-                        <div>
-                                  <div className="App">
-                                    <img style={ style } />
-                                  </div>
-                            </div>
                         <div>
                           <UserControls
                             render={({ user, setAudioOutputDevice }) => (
